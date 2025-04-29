@@ -1,0 +1,13 @@
+1.  The code will print: `values added: 20`. This is because the `if` block executes (`add` is true), `result` is calculated as `10 + 10 = 20`, and this value is printed by `console.log` on line 9.
+
+2.  The code will print: `final result: 20`. Even though `result` was declared inside the `if` block, the `var` keyword gives it function scope. This means `result` is accessible throughout the entire `sumValues` function. Therefore, line 13 can access `result` and prints its last assigned value, which is 20.
+
+3.  I should not use `var` because it has function scope, not block scope. This means a variable declared with `var` inside a block (like an `if` statement or a `for` loop) is accessible outside that block within the same function. This can lead to unexpected behavior, naming conflicts, and make the code harder to understand and debug, especially in larger programs. Modern JavaScript prefers `let` and `const` which have block scope, limiting the variable's visibility to the block where it is defined.
+
+4.  The code will print: `values added: 20`. The `if` block executes because `add` is true. Inside the block, `result` is declared with `let`, initialized to 0, and then successfully reassigned to `10 + 10 = 20` on line 7. Line 9 then prints this value.
+
+5.  The code returns an error. The variable `result` is declared using `let` within the `if` block (lines 3-11). `let` provides block scope, meaning `result` only exists and is accessible *inside* that specific `if` block. When execution reaches line 13, which is outside the `if` block, `result` is no longer in scope and therefore not defined. Attempting to access it causes a `ReferenceError`.
+
+6.  The code returns an error. Line 7 (`result = num1 + num2;`) attempts to reassign a value to the variable `result`, which was declared using `const` on line 5. Variables declared with `const` cannot be reassigned after their initial assignment. This attempt causes a `TypeError`, and the program execution stops before reaching line 9.
+
+7.  The code returns an error before reaching line 13. As explained for question 6, a `TypeError` occurs on line 7 when attempting to reassign the `const` variable `result`. Because the error stops the function's execution, line 13 is never reached. (Additionally, even if the error on line 7 didn't occur, `result` declared with `const` inside the `if` block has block scope, meaning it would not be accessible outside the `if` block on line 13 anyway, which would typically result in a `ReferenceError` if line 13 were reached under different circumstances).
